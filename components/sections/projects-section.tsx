@@ -16,8 +16,8 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Validador Inteligente de Dados",
-    description: "Sistema de validação de dados com correções automáticas para nome, email, senha e CPF. Interface moderna com feedback visual em tempo real e sugestões inteligentes.",
-    technologies: ["HTML5", "CSS3", "JavaScript Puro", "DOM Manipulation", "Validação CPF"],
+    description: "Sistema de validacao de dados com correcoes automaticas para nome, email, senha e CPF. Interface moderna com feedback visual em tempo real e sugestoes inteligentes.",
+    technologies: ["HTML5", "CSS3", "JavaScript Puro", "DOM Manipulation", "Validacao CPF"],
     githubUrl: "https://github.com/shadowdev0101/validador-inteligente",
     liveUrl: "https://validador-inteligente.vercel.app",
     featured: true,
@@ -26,7 +26,7 @@ const projects: Project[] = [
     title: "Planner Inteligente",
     description: "Aplicativo de planejamento inteligente com agendamento automático de tarefas, priorização dinâmica, tema claro/escuro e persistência de dados. Funciona offline com localStorage.",
     technologies: ["HTML5", "CSS3", "JavaScript ES6+", "localStorage", "Drag & Drop"],
-    githubUrl: "https://github.com/shadowdev0101/planner-inteligente",
+    githubUrl: "https://github.com/SEU_USUARIO/planner-inteligente",
     liveUrl: "https://planner-inteligente.vercel.app",
     featured: true,
   },
@@ -106,6 +106,7 @@ export function ProjectsSection() {
       className="relative py-24 px-6"
     >
       <div className="max-w-5xl mx-auto">
+        {/* Section Header */}
         <div 
           className={cn(
             "mb-12 transition-all duration-700",
@@ -121,6 +122,7 @@ export function ProjectsSection() {
           </h2>
         </div>
 
+        {/* Featured Projects */}
         <div className="space-y-8 mb-16">
           {featuredProjects.map((project, index) => (
             <div
@@ -133,6 +135,7 @@ export function ProjectsSection() {
               )}
               style={{ transitionDelay: `${(index + 2) * 150}ms` }}
             >
+              {/* Featured Badge */}
               <div className="absolute top-4 right-4 px-2 py-1 text-[10px] font-mono text-neon-green border border-neon-green/50 rounded">
                 FEATURED
               </div>
@@ -150,6 +153,7 @@ export function ProjectsSection() {
                 {project.description}
               </p>
 
+              {/* Technologies */}
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
                   <span 
@@ -161,6 +165,7 @@ export function ProjectsSection() {
                 ))}
               </div>
 
+              {/* Links */}
               <div className="flex items-center gap-4">
                 {project.githubUrl && (
                   <a
@@ -189,6 +194,7 @@ export function ProjectsSection() {
           ))}
         </div>
 
+        {/* Other Projects Grid */}
         <div 
           className={cn(
             "transition-all duration-700 delay-700",

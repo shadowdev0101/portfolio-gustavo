@@ -1,0 +1,268 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Cyberpunk Dark Theme - Always Dark */
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.9 0.15 150);
+  --card: oklch(0.08 0.01 240);
+  --card-foreground: oklch(0.9 0.15 150);
+  --popover: oklch(0.08 0.01 240);
+  --popover-foreground: oklch(0.9 0.15 150);
+  --primary: oklch(0.75 0.25 150);
+  --primary-foreground: oklch(0.1 0 0);
+  --secondary: oklch(0.12 0.02 240);
+  --secondary-foreground: oklch(0.85 0.18 200);
+  --muted: oklch(0.15 0.01 240);
+  --muted-foreground: oklch(0.6 0.05 150);
+  --accent: oklch(0.65 0.25 280);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.6 0.25 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.25 0.08 150);
+  --input: oklch(0.12 0.02 240);
+  --ring: oklch(0.75 0.25 150);
+  --radius: 0.5rem;
+  
+  /* Neon Colors */
+  --neon-green: oklch(0.8 0.3 150);
+  --neon-blue: oklch(0.7 0.25 220);
+  --neon-purple: oklch(0.65 0.3 300);
+  --neon-pink: oklch(0.7 0.28 350);
+  --cyber-dark: oklch(0.03 0 0);
+  --cyber-gray: oklch(0.15 0.01 240);
+  --terminal-green: oklch(0.75 0.25 150);
+}
+
+.dark {
+  --background: oklch(0.05 0 0);
+  --foreground: oklch(0.9 0.15 150);
+  --card: oklch(0.08 0.01 240);
+  --card-foreground: oklch(0.9 0.15 150);
+  --popover: oklch(0.08 0.01 240);
+  --popover-foreground: oklch(0.9 0.15 150);
+  --primary: oklch(0.75 0.25 150);
+  --primary-foreground: oklch(0.1 0 0);
+  --secondary: oklch(0.12 0.02 240);
+  --secondary-foreground: oklch(0.85 0.18 200);
+  --muted: oklch(0.15 0.01 240);
+  --muted-foreground: oklch(0.6 0.05 150);
+  --accent: oklch(0.65 0.25 280);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.6 0.25 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.25 0.08 150);
+  --input: oklch(0.12 0.02 240);
+  --ring: oklch(0.75 0.25 150);
+}
+
+@theme inline {
+  --font-sans: 'Space Grotesk', 'Geist', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Geist Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Custom Neon Colors */
+  --color-neon-green: var(--neon-green);
+  --color-neon-blue: var(--neon-blue);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-pink: var(--neon-pink);
+  --color-cyber-dark: var(--cyber-dark);
+  --color-cyber-gray: var(--cyber-gray);
+  --color-terminal-green: var(--terminal-green);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--cyber-dark);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--neon-green);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-blue);
+  }
+  
+  /* Selection */
+  ::selection {
+    background: oklch(0.75 0.25 150 / 0.3);
+    color: oklch(0.98 0 0);
+  }
+}
+
+@layer utilities {
+  /* Neon Glow Effects */
+  .neon-glow {
+    text-shadow: 
+      0 0 5px var(--neon-green),
+      0 0 10px var(--neon-green),
+      0 0 20px var(--neon-green),
+      0 0 40px var(--neon-green);
+  }
+  
+  .neon-glow-blue {
+    text-shadow: 
+      0 0 5px var(--neon-blue),
+      0 0 10px var(--neon-blue),
+      0 0 20px var(--neon-blue);
+  }
+  
+  .neon-glow-purple {
+    text-shadow: 
+      0 0 5px var(--neon-purple),
+      0 0 10px var(--neon-purple),
+      0 0 20px var(--neon-purple);
+  }
+  
+  .neon-border {
+    box-shadow: 
+      0 0 5px var(--neon-green),
+      0 0 10px var(--neon-green),
+      inset 0 0 5px var(--neon-green);
+  }
+  
+  .neon-border-blue {
+    box-shadow: 
+      0 0 5px var(--neon-blue),
+      0 0 10px var(--neon-blue),
+      inset 0 0 5px var(--neon-blue);
+  }
+  
+  /* Scanline Effect */
+  .scanlines {
+    position: relative;
+  }
+  
+  .scanlines::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      oklch(0 0 0 / 0.03) 2px,
+      oklch(0 0 0 / 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  /* Terminal Cursor */
+  .terminal-cursor::after {
+    content: '_';
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  
+  /* Glitch Animation */
+  @keyframes glitch {
+    0%, 100% { 
+      transform: translate(0);
+      text-shadow: none;
+    }
+    20% { 
+      transform: translate(-2px, 2px);
+      text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-blue);
+    }
+    40% { 
+      transform: translate(-2px, -2px);
+      text-shadow: 2px 0 var(--neon-blue), -2px 0 var(--neon-green);
+    }
+    60% { 
+      transform: translate(2px, 2px);
+      text-shadow: 2px 0 var(--neon-green), -2px 0 var(--neon-pink);
+    }
+    80% { 
+      transform: translate(2px, -2px);
+      text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-blue);
+    }
+  }
+  
+  .glitch-text {
+    animation: glitch 2s infinite;
+  }
+  
+  .glitch-text:hover {
+    animation: glitch 0.3s infinite;
+  }
+  
+  /* Fade In Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  /* Pulse Glow */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green);
+    }
+    50% {
+      box-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
+    }
+  }
+  
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  /* Matrix Rain Background */
+  @keyframes matrix-rain {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+}
